@@ -3,8 +3,11 @@ import axios from 'axios';
 
 import Table from "./Table";
 
+import styled from 'styled-components'
+
 function App() {
 
+  //dealing with data
   const [data, setData] = useState([]); //initial data state for storing API data
 
   //Once mounted, useEffect initiates the API to set data
@@ -60,9 +63,37 @@ function App() {
     []
   );
 
+  //styling the table
+  const StyledTable = styled.div`
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border: 1px solid black;
+      tr {
+        :last-child {
+          td {
+            border-bottom: 0;
+          }
+        }
+      }
+      th,
+      td {
+        margin: 0;
+        padding: 1rem;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        :last-child {
+          border-right: 0;
+        }
+      }
+    }
+  `
+
   return (
     <div className="App">
-      <Table columns={columns} data={data} />
+      <StyledTable>
+        <Table columns={columns} data={data} />
+      </StyledTable>
     </div>
   );
 }
