@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <Table column={columns} data={data} />
+      <Table columns={columns} data={data} />
     </div>
   );
 }
